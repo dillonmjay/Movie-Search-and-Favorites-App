@@ -1,10 +1,28 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #ffffff;
+    --search-bg: rgba(42, 42, 72, 0.8);
+    --button-bg: #a728f5;
+    --heart-bg: red;
+}
+
+/* Light Mode Variables */
+.light-mode {
+    --bg-color: #ffffff;
+    --text-color: #1a1a2e;
+    --search-bg: rgba(220, 220, 220, 0.8);
+    --button-bg: #6a0dad;
+    --heart-bg: darkred;
+}
+
+
 html {
 
 }
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a2e;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     text-align: center;
     margin: 0;
     padding: 0;
@@ -15,7 +33,7 @@ body {
     left: 0;
     width: 100vw;
     max-width: 100%;
-    background: rgba(42, 42, 72, 0.8);
+    background: var(--search-bg);
     padding: 15px 20px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -28,12 +46,12 @@ body {
 .container h1 {
     margin: 0;
     font-size: 24px;
-    color: #a728f5;
+    color: var(--button-bg);
 }
 .movie-results {
     max-width: 1000px;
     margin: 20px auto;
-    background: rgba(42, 42, 72, 0.8);
+    background: var(--search-bg);
     
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
@@ -43,8 +61,8 @@ body {
 button {
     padding: 10px 15px;
     border: none;
-    background: #a728f5;
-    color: white;
+    background: var(--button-bg);
+    color: var(--text-color);
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
@@ -65,7 +83,7 @@ button:hover {
     background: rgba(51, 51, 51, 0.6);
     border-radius: 25px;
     overflow: hidden;
-    border: 1px solid #a728f5;
+    border: 1px solid var(--button-bg);
 }
 
 .search-container input {
@@ -74,22 +92,22 @@ button:hover {
     border: none;
     outline: none;
     background: transparent;
-    color: white;
+    color: var(--text-color);
     height: 25px;
 }
 
 #searchYear {
     max-width: 50px;
     /* border-radius: 50px 0 0 50px; */
-    border-left: 1px solid #a728f5;
+    border-left: 1px solid var(--button-bg);
 }
 
 .search-container button {
     padding: 9px 15px;
     border: none;
     border-radius: 50px;
-    background: #a728f5;
-    color: white;
+    background: var(--button-bg);
+    color: var(--text-color);
     cursor: pointer;
     font-weight: bold;
     /* border-radius: 0 25px 25px 0; */
@@ -116,10 +134,8 @@ button:hover {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: #a728f5;
-    background: #fff;
-    color: white;
-    color: black;
+    background: var(--text-color);
+    color: var(--bg-color);
     font-size: 12px;
     width: 18px;
     height: 18px;
@@ -129,6 +145,33 @@ button:hover {
     border-radius: 50%;
     font-weight: bold;
 }
+
+
+/* Toggle Button */
+.toggle-btn {
+    padding: 10px 15px;
+    border: none;
+    background: var(--button-bg);
+    color: var(--text-color);
+    border-radius: 50px;
+    cursor: pointer;
+
+
+    padding: 0;
+    font-size: 30px;
+    height: 50px;
+    border: none;
+    background: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    background: none;
+}
+
+
 .movie {
     display: flex;
     align-items: center;
@@ -252,7 +295,7 @@ button:hover {
     border-radius: 8px;
     max-width: 500px;
     text-align: left;
-    color: white;
+    color: var(--text-color);
     backdrop-filter: blur(8px);
 }
 .modal-content #moviePoster {

@@ -118,3 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
     displayFavorites();  // Show saved favorites when the page loads
     updateFavoriteCount();  // Update the favorites count on page load
 });
+
+//////////////////////////////////////////////////////////////////////
+const toggleBtn = document.getElementById("toggleMode");
+
+function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+
+    // Save mode preference in localStorage
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌞"; // Change icon for light mode
+    } else {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "🌙"; // Change icon for dark mode
+    }
+}
+
+// Load user preference from localStorage
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+        toggleBtn.textContent = "🌞";
+    }
+});
+
+toggleBtn.addEventListener("click", toggleTheme);
