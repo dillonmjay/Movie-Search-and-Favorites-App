@@ -81,7 +81,7 @@ button:hover {
     align-items: center;
     width: 500px;
     background: rgba(51, 51, 51, 0.6);
-    border-radius: 25px;
+    border-radius: 6px;
     overflow: hidden;
     border: 1px solid var(--button-bg);
 }
@@ -105,13 +105,14 @@ button:hover {
 .search-container button {
     padding: 9px 15px;
     border: none;
-    border-radius: 50px;
+    border-radius: 0;
     background: var(--button-bg);
     color: var(--text-color);
     cursor: pointer;
     font-weight: bold;
+    height: 45px;
     /* border-radius: 0 25px 25px 0; */
-    margin: 5px;
+    margin: 0px;
 }
 
 .search-container button:hover {
