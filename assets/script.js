@@ -80,12 +80,18 @@ function closeModal() {
     document.getElementById("movieModal").style.display = "none";
 }
 
+function updateFavoriteCount() {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    document.getElementById('favoriteCount').textContent = favorites.length;
+}
+
 function addToFavorites(id, title, poster) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (!favorites.some(movie => movie.id === id)) {
         favorites.push({ id, title, poster });
         localStorage.setItem('favorites', JSON.stringify(favorites));
         displayFavorites();
+        updateFavoriteCount(); // Update the count after adding
     }
 }
 
@@ -105,6 +111,10 @@ function removeFromFavorites(id) {
     favorites = favorites.filter(movie => movie.id !== id);
     localStorage.setItem('favorites', JSON.stringify(favorites));
     displayFavorites();
+    updateFavoriteCount(); // Update the count after adding
 }
 
-document.addEventListener('DOMContentLoaded', displayFavorites);
+document.addEventListener('DOMContentLoaded', () => {
+    displayFavorites();  // Show saved favorites when the page loads
+    updateFavoriteCount();  // Update the favorites count on page load
+});

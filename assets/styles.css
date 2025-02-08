@@ -112,6 +112,21 @@ button:hover {
 .heart img:hover {
     transform: scale(1.1);
 }
+#favoriteCount {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+}
 .movie {
     display: flex;
     align-items: center;
