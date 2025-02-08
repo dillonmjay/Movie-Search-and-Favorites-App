@@ -75,10 +75,10 @@ button:hover {
     outline: none;
     background: transparent;
     color: white;
+    height: 25px;
 }
 
 #searchYear {
-    height: 25px;
     max-width: 50px;
     /* border-radius: 50px 0 0 50px; */
     border-left: 1px solid #a728f5;
@@ -116,8 +116,10 @@ button:hover {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: red;
+    background: #a728f5;
+    background: #fff;
     color: white;
+    color: black;
     font-size: 12px;
     width: 18px;
     height: 18px;
