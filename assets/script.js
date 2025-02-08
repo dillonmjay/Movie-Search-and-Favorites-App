@@ -33,6 +33,35 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+//////////////////////////////////////////////////////////////////
+
+
+const latestMoviesContainer = document.getElementById("latestMovies");
+        
+
+        function fetchLatestMovies() {
+            fetch(`https://www.omdbapi.com/?s=inside&type=movie&apikey=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.Response === "True") {
+                        latestMoviesContainer.innerHTML = data.Search.slice(0, 10).map(movie => `
+                            <div class="new-movie">
+                                <img src="${movie.Poster}" alt="${movie.Title}" onclick="viewMovieDetails('${movie.imdbID}')">
+                                <h3 onclick="viewMovieDetails('${movie.imdbID}')">${movie.Title} (${movie.Year})</h3>
+                                <button onclick="addToFavorites('${movie.imdbID}', '${movie.Title}', '${movie.Poster}')">Add to Favorites</button>
+                            </div>
+                        `).join('');
+                    } else {
+                        latestMoviesContainer.innerHTML = '<p>No latest movies found.</p>';
+                    }
+                })
+                .catch(error => console.error("Error fetching latest movies:", error));
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchLatestMovies);
+
+/////////////////////////////////////////////////////////////////////
+
 function viewMovieDetails(movieID) {
     fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=${apiKey}`)
         .then(response => response.json())
