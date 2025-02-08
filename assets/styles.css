@@ -15,6 +15,16 @@
     --heart-bg: darkred;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #a728f5;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #a728f5;
+}
 
 html {
 
