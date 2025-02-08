@@ -106,6 +106,13 @@ button:hover {
 
 
 
+.heart img {
+    height: 40px;
+}
+.heart img:hover {
+    transform: scale(1.1);
+}
+
 
 
 
