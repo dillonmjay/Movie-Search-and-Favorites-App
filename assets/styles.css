@@ -97,7 +97,7 @@ button:hover {
 }
 
 #searchYear {
-    max-width: 50px;
+    max-width: 70px;
     /* border-radius: 50px 0 0 50px; */
     border-left: 1px solid var(--button-bg);
 }
