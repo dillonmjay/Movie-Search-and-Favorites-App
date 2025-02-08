@@ -8,12 +8,37 @@
 </head>
 <body>
     <div class="container">
-        <h1>Movie Search App</h1>
-        <input type="text" id="searchInput" placeholder="Search for a movie...">
-        <button id="searchButton">Search</button>
-        <div id="movieResults"></div>
-        <h2>Favorites</h2>
+        <h1 style="color:#a728f5;">dxdy movie search</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for a movie...">
+            <input type="text" id="searchYear" placeholder="Year">
+            <button id="searchButton">Search</button>
+        </div>
+        <div class="heart"><img src="assets/images/heart.png" alt="favorite"></div>
+    </div>
+
+    <div class="movie-results" id="movieResults"></div>
+
+    <div class="hero">
+        <h2 style="color:#a728f5;">Latest Movie Recommendations</h2>
+        <div class="lastest-movies" id="latestMovies"></div>
+    </div>
+
+    <div class="favourite">
+        <h2 style="color:#ff0099;">Favorites</h2>
         <div id="favoriteMovies"></div>
+    </div>
+
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="movieTitle"></h2>
+            <img id="moviePoster" src="" alt="Movie Poster">
+            <p><strong>Year:</strong> <span id="movieYear"></span></p>
+            <p><strong>Genre:</strong> <span id="movieGenre"></span></p>
+            <p><strong>Plot:</strong> <span id="moviePlot"></span></p>
+            <p><strong>IMDB Rating:</strong> <span id="movieRating"></span></p>
+        </div>
     </div>
     <script src="assets/script.js"></script>
 </body>

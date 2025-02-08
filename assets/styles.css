@@ -1,38 +1,58 @@
+html {
+
+}
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #1a1a2e;
+    color: #fff;
     text-align: center;
     margin: 0;
     padding: 0;
 }
-
 .container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100%;
+    background: rgba(42, 42, 72, 0.8);
+    padding: 15px 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
-
-input {
-    padding: 10px;
-    width: 70%;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.container h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #a728f5;
+}
+.movie-results {
+    max-width: 1000px;
+    margin: 20px auto;
+    background: rgba(42, 42, 72, 0.8);
+    
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
 button {
     padding: 10px 15px;
     border: none;
-    background: #28a745;
+    background: #a728f5;
     color: white;
-    border-radius: 4px;
+    border-radius: 50px;
     cursor: pointer;
+    font-weight: bold;
+}
+button:hover {
+    background: #9224d6;
 }
 
-button:hover {
-    background: #218838;
-}
+
+
 
