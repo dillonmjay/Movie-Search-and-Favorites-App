@@ -33,3 +33,31 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+function addToFavorites(id, title, poster) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    if (!favorites.some(movie => movie.id === id)) {
+        favorites.push({ id, title, poster });
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        displayFavorites();
+    }
+}
+
+function displayFavorites() {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favoriteMovies.innerHTML = favorites.map(movie => `
+        <div class="movie">
+            <img src="${movie.poster}" alt="${movie.title}">
+            <h3 onclick="viewMovieDetails('${movie.id}')">${movie.title}</h3>
+            <button onclick="removeFromFavorites('${movie.id}')">Remove</button>
+        </div>
+    `).join('');
+}
+
+function removeFromFavorites(id) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites = favorites.filter(movie => movie.id !== id);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    displayFavorites();
+}
+
+document.addEventListener('DOMContentLoaded', displayFavorites);
