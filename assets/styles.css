@@ -103,9 +103,9 @@ button:hover {
 
 
 
-
-
-
+.heart {
+    position: relative;
+}
 .heart img {
     height: 40px;
 }
@@ -114,8 +114,8 @@ button:hover {
 }
 #favoriteCount {
     position: absolute;
-    top: 7px;
-    right: 7px;
+    top: -5px;
+    right: -5px;
     background: red;
     color: white;
     font-size: 12px;
