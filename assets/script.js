@@ -121,9 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //////////////////////////////////////////////////////////////////////
 const toggleBtn = document.getElementById("toggleMode");
+const toggleIcon = document.getElementById("toggleIcon");
 
 function toggleTheme() {
     document.body.classList.toggle("light-mode");
+
     // Add spin effect
     toggleBtn.classList.add("spin");
 
@@ -132,13 +134,13 @@ function toggleTheme() {
         toggleBtn.classList.remove("spin");
     }, 500);
 
-    // Save mode preference in localStorage
+    // Save mode preference in localStorage and change icon
     if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
-        toggleBtn.textContent = "🌞"; // Change icon for light mode
+        toggleIcon.src = "assets/images/sun.png"; // Light Mode Icon
     } else {
         localStorage.setItem("theme", "dark");
-        toggleBtn.textContent = "🌙"; // Change icon for dark mode
+        toggleIcon.src = "assets/images/crescent-moon.png"; // Dark Mode Icon
     }
 }
 
@@ -146,7 +148,7 @@ function toggleTheme() {
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
-        toggleBtn.textContent = "🌞";
+        toggleIcon.src = "assets/images/sun.png";
     }
 });
 

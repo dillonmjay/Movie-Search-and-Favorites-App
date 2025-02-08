@@ -154,18 +154,22 @@ button:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* Toggle Button */
 .toggle-btn {
-    padding: 0;
-    height: auto;
-    font-size: 35px;
-    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Adjust width */
+    height: 50px; /* Adjust height */
     border: none;
     background: none;
-    color: white;
-    border-radius: 5px;
     cursor: pointer;
     transition: transform 0.5s ease-in-out;
+}
+
+.toggle-btn img {
+    width: 35px; /* Adjust icon size */
+    height: 35px;
+    transition: all 0.3s ease-in-out;
 }
 
 .toggle-btn.spin {
