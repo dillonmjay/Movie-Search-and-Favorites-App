@@ -33,6 +33,24 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+function viewMovieDetails(movieID) {
+    fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=${apiKey}`)
+        .then(response => response.json())
+        .then(movie => {
+            document.getElementById("movieTitle").innerText = movie.Title;
+            document.getElementById("moviePoster").src = movie.Poster;
+            document.getElementById("movieYear").innerText = movie.Year;
+            document.getElementById("movieGenre").innerText = movie.Genre;
+            document.getElementById("moviePlot").innerText = movie.Plot;
+            document.getElementById("movieRating").innerText = movie.imdbRating;
+            document.getElementById("movieModal").style.display = "flex";
+        });
+}
+
+function closeModal() {
+    document.getElementById("movieModal").style.display = "none";
+}
+
 function addToFavorites(id, title, poster) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     if (!favorites.some(movie => movie.id === id)) {
