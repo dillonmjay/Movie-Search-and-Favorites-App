@@ -30,7 +30,8 @@ body {
 .container {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the container */
     width: 100vw;
     max-width: 100%;
     background: var(--search-bg);
@@ -40,7 +41,8 @@ body {
     z-index: 9999;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Center items horizontally */
+    gap: 20px; /* Space between elements */
     box-sizing: border-box;
 }
 .container h1 {
@@ -147,25 +149,25 @@ button:hover {
     font-weight: bold;
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 /* Toggle Button */
 .toggle-btn {
-    padding: 10px 15px;
-    border: none;
-    background: var(--button-bg);
-    color: var(--text-color);
-    border-radius: 50px;
-    cursor: pointer;
-
-
     padding: 0;
     font-size: 30px;
-    height: 50px;
     border: none;
     background: none;
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+.toggle-btn.spin {
+    animation: spin 0.5s ease-in-out;
 }
 
 .toggle-btn:hover {
@@ -291,7 +293,7 @@ button:hover {
     z-index: 99999;
 }
 .modal-content {
-    background: rgba(26, 26, 46, 0.9);
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;

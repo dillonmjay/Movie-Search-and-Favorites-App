@@ -124,6 +124,13 @@ const toggleBtn = document.getElementById("toggleMode");
 
 function toggleTheme() {
     document.body.classList.toggle("light-mode");
+    // Add spin effect
+    toggleBtn.classList.add("spin");
+
+    // Remove spin effect after animation
+    setTimeout(() => {
+        toggleBtn.classList.remove("spin");
+    }, 500);
 
     // Save mode preference in localStorage
     if (document.body.classList.contains("light-mode")) {
