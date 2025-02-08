@@ -56,3 +56,59 @@ button:hover {
 
 
 
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    background: rgba(51, 51, 51, 0.6);
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid #a728f5;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+#searchYear {
+    height: 25px;
+    max-width: 50px;
+    /* border-radius: 50px 0 0 50px; */
+    border-left: 1px solid #a728f5;
+}
+
+.search-container button {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 50px;
+    background: #a728f5;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    /* border-radius: 0 25px 25px 0; */
+    margin: 5px;
+}
+
+.search-container button:hover {
+    background: #9224d6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
