@@ -36,6 +36,9 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    font-family: "Gowun Dodum", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .container {
     position: fixed;
@@ -57,8 +60,11 @@ body {
 }
 .container h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
     color: var(--button-bg);
+    font-family: "Charm", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 .movie-results {
     max-width: 1000px;
@@ -93,7 +99,7 @@ button:hover {
     align-items: center;
     width: 700px;
     background: var(--search-bg);
-    border-radius: 6px;
+    border-radius: 25px;
     overflow: hidden;
     border: 1px solid var(--button-bg);
 }
@@ -106,6 +112,10 @@ button:hover {
     background: transparent;
     color: var(--text-color);
     height: 25px;
+    font-family: "Gowun Dodum", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
 }
 
 #searchYear {
@@ -234,6 +244,11 @@ button:hover {
 
 .hero h2 {
     margin-top: 120px;
+    /* font-family: "Charm", serif;
+    font-weight: 700;
+    font-style: normal; */
+    font-size: 30px;
+    
 }
 
 
@@ -339,3 +354,36 @@ button:hover {
 
 
 
+
+
+
+
+
+
+#authModal .modal-content {
+    max-width: 300px;
+    text-align: center;
+}
+
+#authModal input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#authModal button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: none;
+    background: var(--button-bg);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#authModal button:hover {
+    background: #9224d6;
+}
