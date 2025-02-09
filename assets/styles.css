@@ -237,6 +237,34 @@ button:hover {
 
 
 
+.movie-results {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 120px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    max-height: 500px;
+
+    left: 50%;
+    transform: translateX(-50%); /* Center the container */
+    padding: 15px 20px;
+    z-index: 9999;
+}
+
+
+
+
+
+
+
+
+
+
+
 .hero {
     margin: 100px auto;
     text-align: center;
@@ -296,8 +324,6 @@ button:hover {
 .new-movie button:hover {
     background: #e6007e;
 }
-
-
 
 
 
