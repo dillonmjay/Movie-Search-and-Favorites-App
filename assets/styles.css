@@ -41,6 +41,7 @@ body {
     font-style: normal;
 }
 
+/*///////////////////////////////////////////////////////////////////////////*/
 .container {
     position: fixed;
     top: 0;
@@ -175,8 +176,9 @@ button:hover {
     background: #9224d6;
 }
 
+/*///////////////////////////////////////////////////////////////////////////*/
 
-
+/*///////////////////////////////////////////////////////////////////////////*/
 
 .heart {
     position: relative;
@@ -202,7 +204,7 @@ button:hover {
     border-radius: 50%;
     font-weight: bold;
 }
-
+/*///////////////////////////////////////////////////////////////////////////*/
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -233,8 +235,10 @@ button:hover {
 .toggle-btn:hover {
     background: none;
 }
+/*///////////////////////////////////////////////////////////////////////////*/
 
 
+/*///////////////////////////////////////////////////////////////////////////*/
 .movie {
     display: flex;
     align-items: center;
@@ -266,7 +270,7 @@ button:hover {
 .movie button:hover {
     background: #e6007e;
 }
-
+/*///////////////////////////////////////////////////////////////////////////*/
 
 
 
@@ -297,8 +301,6 @@ button:hover {
 
 
 /*///////////////////////////////////////////////////////////////////////////*/
-
-
 
 .hero {
     margin: 100px auto;
@@ -362,16 +364,39 @@ button:hover {
 
 /*///////////////////////////////////////////////////////////////////////////*/
 
+/*///////////////////////////////////////////////////////////////////////////*/
+
+.favourite {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Center the container */
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    background: var(--search-bg);
+    padding: 15px 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    z-index: 9999;
+}
+.favorite-movies {
+    position: absolute;
+    width: 100%;
+    max-width: 1200px;
+    left: 50%;
+    transform: translateX(-50%); /* Center the container */
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    padding: 20px;
+}
 
 
+/*///////////////////////////////////////////////////////////////////////////*/
 
-
-
-
-
-
-
-
+/*///////////////////////////////////////////////////////////////////////////*/
 .modal {
     display: none;
     position: fixed;
@@ -403,7 +428,7 @@ button:hover {
     font-size: 35px;
     cursor: pointer;
 }
-
+/*///////////////////////////////////////////////////////////////////////////*/
 
 
 
