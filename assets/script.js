@@ -3,6 +3,7 @@ const searchButton = document.getElementById('searchButton');
 const searchInput = document.getElementById('searchInput');
 const movieResults = document.getElementById('movieResults');
 const favoriteMovies = document.getElementById('favoriteMovies');
+const searchClose = document.getElementById('searchClose')
 
 searchButton.addEventListener('click', () => {
     const query = searchInput.value.trim();
@@ -29,9 +30,17 @@ searchButton.addEventListener('click', () => {
                 } else {
                     movieResults.innerHTML = '<p>No results found</p>';
                 }
+                movieResults.classList.add("show");
+                searchClose.classList.add("show");
             });
     }
 });
+
+searchClose.addEventListener('click', () => {
+    movieResults.classList.remove("show");
+    searchClose.classList.remove("show");
+});
+
 
 //////////////////////////////////////////////////////////////////
 

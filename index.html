@@ -25,22 +25,26 @@
         </div>
     </div>
     <div class="container">
-        <h1 style="color:#a728f5;">dxdy movie</h1>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for a movie...">
-            <input type="text" id="searchYear" placeholder="Year">
-            <button id="searchButton">Search</button>
+        <div class="container-flex-1">
+            <h1 style="color:#a728f5;">dxdy movie</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for a movie...">
+                <input type="text" id="searchYear" placeholder="Year">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="heart">
+                <img src="assets/images/heart.png" alt="favorite">
+                <span id="favoriteCount">0</span> <!-- Counter -->
+            </div>
+            <button class="toggle-btn" id="toggleMode">
+                <img id="toggleIcon" src="assets/images/crescent-moon.png" alt="Toggle Theme">
+            </button>
         </div>
-        <div class="heart">
-            <img src="assets/images/heart.png" alt="favorite">
-            <span id="favoriteCount">0</span> <!-- Counter -->
-        </div>
-        <button class="toggle-btn" id="toggleMode">
-            <img id="toggleIcon" src="assets/images/crescent-moon.png" alt="Toggle Theme">
-        </button>
         <div class="movie-results" id="movieResults"></div>
+        <span id="searchClose" class="search-close">&times;</span>
     </div>
 
+    
     
 
     <div class="hero">

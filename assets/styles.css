@@ -40,6 +40,7 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
 .container {
     position: fixed;
     top: 0;
@@ -51,13 +52,53 @@ body {
     padding: 15px 20px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
     z-index: 9999;
+}
+.container-flex-1 {
     display: flex;
     align-items: center;
     justify-content: center; /* Center items horizontally */
     gap: 20px; /* Space between elements */
     box-sizing: border-box;
 }
+.movie-results {
+    display: none;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: transparent;
+    width: 100%;
+    max-width: 1000px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 400px;
+    height: auto;
+}
+.movie-results.show {
+    display: block;
+}
+.search-close {
+    display: none;
+    font-size: 50px;
+    cursor: pointer;
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background: var(--button-bg);
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(10px);
+}
+.search-close.show {
+    display: block;
+}
+
+
+
 .container h1 {
     margin: 0;
     font-size: 30px;
@@ -66,15 +107,7 @@ body {
     font-weight: 700;
     font-style: normal;
 }
-.movie-results {
-    max-width: 1000px;
-    margin: 20px auto;
-    background: var(--search-bg);
-    
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-}
+
 
 button {
     padding: 10px 15px;
@@ -102,6 +135,7 @@ button:hover {
     border-radius: 25px;
     overflow: hidden;
     border: 1px solid var(--button-bg);
+    z-index: 99999;
 }
 
 .search-container input {
@@ -236,13 +270,18 @@ button:hover {
 
 
 
+/* .movie-results {
+    margin: 20px auto;
+    background: var(--search-bg);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 
-.movie-results {
     position: fixed;
     top: 0;
     width: 100%;
     max-width: 1000px;
-    margin-top: 120px;
+    margin-top: 80px;
     width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -250,14 +289,10 @@ button:hover {
     max-height: 500px;
 
     left: 50%;
-    transform: translateX(-50%); /* Center the container */
+    transform: translateX(-50%); 
     padding: 15px 20px;
-    z-index: 9999;
-}
-
-
-
-
+    z-index: 999;
+} */
 
 
 
