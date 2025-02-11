@@ -301,7 +301,11 @@ button:hover {
     z-index: 999;
 } */
 
-
+.close {
+    float: right;
+    font-size: 35px;
+    cursor: pointer;
+}
 
 /*///////////////////////////////////////////////////////////////////////////*/
 
@@ -394,7 +398,12 @@ button:hover {
     overflow-y: auto;
     overflow-x: hidden;
 }
-
+.fav-close {
+    position: absolute;
+    font-size: 50px;
+    top: 15px;
+    right: 50px;
+}
 
 /*///////////////////////////////////////////////////////////////////////////*/
 
@@ -425,11 +434,7 @@ button:hover {
     max-height: 350px;
     width: auto;
 }
-.close {
-    float: right;
-    font-size: 35px;
-    cursor: pointer;
-}
+
 /*///////////////////////////////////////////////////////////////////////////*/
 
 
