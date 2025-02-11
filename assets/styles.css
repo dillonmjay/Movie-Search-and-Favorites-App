@@ -71,6 +71,8 @@ body.hide-scroll {
     display: none;
     margin: 0 auto;
     margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     background: transparent;
     width: 100%;
     max-width: 1000px;
@@ -483,4 +485,19 @@ button:hover {
 
 #authModal button:hover {
     background: #9224d6;
+}
+
+.footer-bottom {
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    z-index: 3;
+}
+
+.footer-bottom .jello {
+    text-decoration: none;
+    color: var(--button-bg);
 }
