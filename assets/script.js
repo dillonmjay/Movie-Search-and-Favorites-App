@@ -32,6 +32,7 @@ searchButton.addEventListener('click', () => {
                 }
                 movieResults.classList.add("show");
                 searchClose.classList.add("show");
+                document.body.classList.add("hide-scroll");
             });
     }
 });
@@ -39,6 +40,7 @@ searchButton.addEventListener('click', () => {
 searchClose.addEventListener('click', () => {
     movieResults.classList.remove("show");
     searchClose.classList.remove("show");
+    document.body.classList.remove("hide-scroll");
 });
 
 
@@ -128,6 +130,19 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFavoriteCount();  // Update the favorites count on page load
 });
 
+//////////////////////heart button////////////////////////
+const heartBtn = document.getElementById("heartBtn");
+const favourite = document.getElementById("favourite");
+const favClose = document.getElementById("favClose");
+
+heartBtn.addEventListener('click', () => {
+    favourite.classList.add("show");
+    document.body.classList.add("hide-scroll");
+});
+favClose.addEventListener('click', () => {
+    favourite.classList.remove("show");
+    document.body.classList.remove("hide-scroll");
+});
 //////////////////////////////////////////////////////////////////////
 const toggleBtn = document.getElementById("toggleMode");
 const toggleIcon = document.getElementById("toggleIcon");
