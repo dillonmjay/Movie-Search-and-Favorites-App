@@ -380,6 +380,8 @@ button:hover {
     backdrop-filter: blur(10px);
     overflow: hidden;
     z-index: 9999;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .favorite-movies {
     position: absolute;
@@ -387,9 +389,6 @@ button:hover {
     max-width: 1200px;
     left: 50%;
     transform: translateX(-50%); /* Center the container */
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100vh;
     padding: 20px;
 }
 
