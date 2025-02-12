@@ -470,6 +470,8 @@ button:hover {
 }
 #authModal .modal-content {
     max-width: 300px;
+    min-width: 200px;
+    width: 100%;
     text-align: center;
 }
 
