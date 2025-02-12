@@ -283,19 +283,71 @@ document.addEventListener("DOMContentLoaded", () => {
 toggleBtn.addEventListener("click", toggleTheme);
 
 ///////////////////////////////////////////////////////////////////
-const profileBtn = document.getElementById("profileBtn");
-const authModal= document.getElementById("authModal");
-const authClose = document.getElementById("authClose");
+// const profileBtn = document.getElementById("profileBtn");
+// const authModal= document.getElementById("authModal");
+// const authClose = document.getElementById("authClose");
 
-profileBtn.addEventListener('click', () => {
+// profileBtn.addEventListener('click', () => {
+//     authModal.classList.add("show");
+//     document.body.classList.add("hide-scroll");
+// });
+// authClose.addEventListener('click', () => {
+//     authModal.classList.remove("show");
+//     document.body.classList.remove("hide-scroll");
+// });
+const profileBtn = document.getElementById("profileBtn");
+const authModal = document.getElementById("authModal");
+const authClose = document.getElementById("authClose");
+const authForm = document.getElementById("authForm");
+const userGreeting = document.getElementById("userGreeting");
+const usernameDisplay = document.getElementById("usernameDisplay");
+const logoutBtn = document.getElementById("logoutBtn");
+const authTitle = document.getElementById("authTitle");
+
+// ✅ Check if the user is logged in
+function checkLoginStatus() {
+    const loggedInUser = localStorage.getItem("user");
+
+    if (loggedInUser) {
+        // User is logged in - Show greeting and logout button
+        userGreeting.style.display = "block";
+        usernameDisplay.textContent = loggedInUser;
+        logoutBtn.style.display = "block";
+
+        // Hide login/signup form
+        authForm.style.display = "none";
+        authTitle.textContent = "Welcome Back!";
+    } else {
+        // No user logged in - Show login/signup form
+        userGreeting.style.display = "none";
+        logoutBtn.style.display = "none";
+        authForm.style.display = "block";
+        authTitle.textContent = "Login / Sign Up";
+    }
+}
+
+// ✅ Open Modal & Check Login Status
+profileBtn.addEventListener("click", () => {
     authModal.classList.add("show");
     document.body.classList.add("hide-scroll");
+    checkLoginStatus();
 });
-authClose.addEventListener('click', () => {
+
+// ✅ Close Modal
+authClose.addEventListener("click", () => {
     authModal.classList.remove("show");
     document.body.classList.remove("hide-scroll");
 });
 
+// ✅ Logout Function
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("user");
+    checkLoginStatus(); // Update UI after logout
+    alert("You have logged out!");
+});
+
+// ✅ Run this on page load to check login status
+document.addEventListener("DOMContentLoaded", checkLoginStatus);
 
 
 
