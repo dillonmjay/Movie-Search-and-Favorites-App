@@ -343,7 +343,7 @@ authClose.addEventListener("click", () => {
 logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("user");
     checkLoginStatus(); // Update UI after logout
-    alert("You have logged out!");
+    window.location.reload();
 });
 
 // ✅ Run on Page Load to Check User Status
@@ -366,9 +366,11 @@ document.addEventListener("DOMContentLoaded", checkLoginStatus);
 async function signup() {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
+    const loginMessage = document.getElementById("loginMessage"); // Message div
 
     if (!username || !password) {
-        alert("Please enter a username and password.");
+        loginMessage.style.color = "red";
+        loginMessage.textContent = "Please enter a username and password.";
         return;
     }
 
@@ -379,26 +381,35 @@ async function signup() {
             body: JSON.stringify({ username, password })
         });
 
-        if (!response.ok) {
-            throw new Error("Server error. Please check your backend.");
-        }
-
         const result = await response.json();
-        console.log("Signup Response:", result); // Debugging
-        alert(result.message);
+
+        if (response.ok) {
+            loginMessage.style.color = "green";
+            loginMessage.textContent = result.message;
+
+            setTimeout(() => {
+                loginMessage.textContent = "";
+                login(); // Auto-login after signup
+            }, 1000);
+        } else {
+            loginMessage.style.color = "red";
+            loginMessage.textContent = result.message;
+        }
     } catch (error) {
         console.error("Signup Error:", error);
-        alert("Signup failed. Please try again.");
+        loginMessage.style.color = "red";
+        loginMessage.textContent = "Signup failed. Please try again.";
     }
 }
-
 
 async function login() {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
+    const loginMessage = document.getElementById("loginMessage"); // Message div
 
     if (!username || !password) {
-        alert("Please enter both username and password.");
+        loginMessage.style.color = "red";
+        loginMessage.textContent = "Please enter both username and password.";
         return;
     }
 
@@ -409,23 +420,27 @@ async function login() {
             body: JSON.stringify({ username, password })
         });
 
-        if (!response.ok) {
-            throw new Error("Server error. Please check your backend.");
-        }
-
         const result = await response.json();
-        console.log("Login Response:", result); // Debugging
-        alert(result.message);
 
         if (result.success) {
             localStorage.setItem("user", username);
-            authModal.classList.remove("show"); // Close modal on successful login
+            authModal.classList.remove("show"); // Close modal
             document.body.classList.remove("hide-scroll");
             displayFavorites(); // Refresh favorites
+
+            loginMessage.style.color = "green";
+            loginMessage.textContent = "Login successful! Redirecting...";
+            setTimeout(() => {
+                window.location.reload(); // Refresh to update UI
+            }, 1000);
+        } else {
+            loginMessage.style.color = "red";
+            loginMessage.textContent = result.message;
         }
     } catch (error) {
         console.error("Login Error:", error);
-        alert("Login failed. Please try again.");
+        loginMessage.style.color = "red";
+        loginMessage.textContent = "Login failed. Please try again.";
     }
 }
 
