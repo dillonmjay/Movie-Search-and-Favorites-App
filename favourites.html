@@ -42,6 +42,20 @@
         #usernameTitle {
             text-transform: capitalize;
         }
+        .footer-bottom {
+            background-color: transparent;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            z-index: 3;
+        }
+
+        .footer-bottom .jello {
+            text-decoration: none;
+            color: #a728f5;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +64,13 @@
         <h1 id="usernameTitle">User's Favorite Movies</h1>
         <div id="favoriteMovies"></div>
     </div>
-
+    <footer class="footer-bottom">
+        <article>
+            Designed & Built by
+            <a href="https://dillonmjay.com/"
+            class="jello">DILLONMJAY</a></span> &#169; 2025
+        </article>
+    </footer>
     <script>
         async function fetchFavorites() {
     const urlParams = new URLSearchParams(window.location.search);
