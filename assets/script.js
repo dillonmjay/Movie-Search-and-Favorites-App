@@ -452,8 +452,22 @@ async function generateShareLink() {
 
     // Show the share link
     document.getElementById("shareLinkContainer").style.display = "block";
-    document.getElementById("shareLink").href = shareURL;
-    document.getElementById("shareLink").textContent = shareURL;
+    const shareLink = document.getElementById("shareLink");
+    shareLink.href = shareURL;
+    shareLink.textContent = "Copy"
+
+    // copy url
+    shareLink.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the link from opening
+    
+        const shareURL = this.href; // Get the href value
+    
+        navigator.clipboard.writeText(shareURL).then(() => {
+            shareLink.textContent = "Copied"
+        }).catch(err => {
+            console.error("Failed to copy: ", err);
+        });
+    });
 }
 
 // Run on page load

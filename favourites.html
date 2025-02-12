@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User's Favorite Movies</title>
+    <title>DxDy - User's Favorite Movies</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -97,7 +97,7 @@
             return;
         }
 
-        document.title = `${data.username}'s Favorite Movies`;
+        document.title = `DxDy - ${data.username}'s Favorite Movies`;
         document.getElementById("usernameTitle").textContent = `${data.username}'s Favorite Movies`;
 
         document.getElementById("favoriteMovies").innerHTML = data.favorites.length > 0 
