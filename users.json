@@ -70,6 +70,16 @@
         "id": "tt0478970",
         "title": "Ant-Man",
         "poster": "https://m.media-amazon.com/images/M/MV5BMjM2NTQ5Mzc2M15BMl5BanBnXkFtZTgwNTcxMDI2NTE@._V1_SX300.jpg"
+      },
+      {
+        "id": "tt0319262",
+        "title": "The Day After Tomorrow",
+        "poster": "https://m.media-amazon.com/images/M/MV5BOGZmNDYyNmMtNDQyNy00OTkzLTg1OGUtYWJiNmQ5Y2Q5ZGU3XkEyXkFqcGc@._V1_SX300.jpg"
+      },
+      {
+        "id": "tt22022452",
+        "title": "Inside Out 2",
+        "poster": "https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_SX300.jpg"
       }
     ]
   },
@@ -79,19 +89,14 @@
     "password": "123",
     "favorites": [
       {
-        "id": "tt4126476",
-        "title": "After",
-        "poster": "https://m.media-amazon.com/images/M/MV5BNjEyMjhmODItNWI2Zi00ODBiLWExNWItYjgwYWIzNjJhODI5XkEyXkFqcGc@._V1_SX300.jpg"
-      },
-      {
-        "id": "tt17663992",
-        "title": "Scream VI",
-        "poster": "https://m.media-amazon.com/images/M/MV5BZDZkYzk3YTEtYTQ5MS00MzQ5LTg0NjUtOTgzODA5N2EyYTQ1XkEyXkFqcGc@._V1_SX300.jpg"
-      },
-      {
         "id": "tt2369135",
         "title": "Need for Speed",
         "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3ODY4NzYzOF5BMl5BanBnXkFtZTgwNjI3OTE4MDE@._V1_SX300.jpg"
+      },
+      {
+        "id": "tt1645089",
+        "title": "Inside Job",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3MjkyODA2Nl5BMl5BanBnXkFtZTcwNzQxMTU4Mw@@._V1_SX300.jpg"
       }
     ]
   },
@@ -99,6 +104,18 @@
     "id": "00e696ce87bb",
     "username": "DILLONMICHAELJAY@GMAIL.COM",
     "password": "DILLONMICHAELJAY@GMAIL.COM",
+    "favorites": []
+  },
+  {
+    "id": "845f8ebd26c0",
+    "username": "test",
+    "password": "123",
+    "favorites": []
+  },
+  {
+    "id": "1809f8b585ed",
+    "username": "test123",
+    "password": "123",
     "favorites": []
   }
 ]
