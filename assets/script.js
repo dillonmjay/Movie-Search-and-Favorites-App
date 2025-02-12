@@ -129,7 +129,7 @@ async function updateFavoriteCount() {
 
     if (loggedInUser) {
         // Fetch the user's favorites from the server
-        const response = await fetch(`https://movie-search-server-murex.vercel.app/get-favorites?username=${loggedInUser}`);
+        const response = await fetch(`http://localhost:3000/get-favorites?username=${loggedInUser}`);
         const data = await response.json();
         document.getElementById('favoriteCount').textContent = data.favorites ? data.favorites.length : 0;
     } else {
@@ -145,7 +145,7 @@ async function addToFavorites(id, title, poster) {
 
     if (loggedInUser) {
         // Save to backend if user is logged in
-        await fetch("https://movie-search-server-murex.vercel.app/save-favorites", {
+        await fetch("http://localhost:3000/save-favorites", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: loggedInUser, id, title, poster })
@@ -171,7 +171,7 @@ async function displayFavorites() {
 
     try {
         if (loggedInUser) {
-            const response = await fetch(`https://movie-search-server-murex.vercel.app/get-favorites?username=${loggedInUser}`);
+            const response = await fetch(`http://localhost:3000/get-favorites?username=${loggedInUser}`);
 
             if (!response.ok) {
                 throw new Error("Server error. Could not fetch user favorites.");
@@ -206,7 +206,7 @@ async function removeFromFavorites(id) {
 
     try {
         if (loggedInUser) {
-            await fetch("https://movie-search-server-murex.vercel.app/remove-favorite", {
+            await fetch("http://localhost:3000/remove-favorite", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username: loggedInUser, id })
@@ -306,7 +306,7 @@ async function signup() {
     }
 
     try {
-        const response = await fetch("https://movie-search-server-murex.vercel.app/signup", {
+        const response = await fetch("http://localhost:3000/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
@@ -336,7 +336,7 @@ async function login() {
     }
 
     try {
-        const response = await fetch("https://movie-search-server-murex.vercel.app/login", {
+        const response = await fetch("http://localhost:3000/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
@@ -371,7 +371,7 @@ async function generateShareLink() {
     }
 
     // Fetch user ID from the backend
-    const response = await fetch(`https://movie-search-server-murex.vercel.app/get-user-id?username=${loggedInUser}`);
+    const response = await fetch(`http://localhost:3000/get-user-id?username=${loggedInUser}`);
     const data = await response.json();
 
     if (!data.success) {
