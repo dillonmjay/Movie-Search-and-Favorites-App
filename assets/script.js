@@ -304,7 +304,7 @@ const usernameDisplay = document.getElementById("usernameDisplay");
 const logoutBtn = document.getElementById("logoutBtn");
 const authTitle = document.getElementById("authTitle");
 
-// ✅ Check if the user is logged in
+// ✅ Function to Check Login Status and Update Modal UI
 function checkLoginStatus() {
     const loggedInUser = localStorage.getItem("user");
 
@@ -339,14 +339,14 @@ authClose.addEventListener("click", () => {
     document.body.classList.remove("hide-scroll");
 });
 
-// ✅ Logout Function
+// ✅ Logout Function (Clears User Data and Updates UI)
 logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("user");
     checkLoginStatus(); // Update UI after logout
     alert("You have logged out!");
 });
 
-// ✅ Run this on page load to check login status
+// ✅ Run on Page Load to Check User Status
 document.addEventListener("DOMContentLoaded", checkLoginStatus);
 
 
@@ -419,7 +419,8 @@ async function login() {
 
         if (result.success) {
             localStorage.setItem("user", username);
-            closeAuthModal(); // Close modal on successful login
+            authModal.classList.remove("show"); // Close modal on successful login
+            document.body.classList.remove("hide-scroll");
             displayFavorites(); // Refresh favorites
         }
     } catch (error) {
