@@ -360,3 +360,33 @@ async function login() {
         alert("Login failed. Please try again.");
     }
 }
+
+
+async function generateShareLink() {
+    const loggedInUser = localStorage.getItem("user");
+
+    if (!loggedInUser) {
+        document.getElementById("shareLinkContainer").style.display = "none";
+        return;
+    }
+
+    // Fetch user ID from the backend
+    const response = await fetch(`http://localhost:3000/get-user-id?username=${loggedInUser}`);
+    const data = await response.json();
+
+    if (!data.success) {
+        document.getElementById("shareLinkContainer").style.display = "none";
+        return;
+    }
+
+    const userID = data.userID;
+    const shareURL = `http://127.0.0.1:5500/favourites.html?id=${userID}`;
+
+    // Show the share link
+    document.getElementById("shareLinkContainer").style.display = "block";
+    document.getElementById("shareLink").href = shareURL;
+    document.getElementById("shareLink").textContent = shareURL;
+}
+
+// Run on page load
+document.addEventListener("DOMContentLoaded", generateShareLink);

@@ -22,8 +22,9 @@ function saveUsers(users) {
 }
 
 
+const crypto = require("crypto"); // For generating unique IDs
 
-// ✅ **Signup Route (Now Added)**
+// ✅ **Signup Route with Unique User ID**
 app.post("/signup", (req, res) => {
     let users = getUsers();
     const { username, password } = req.body;
@@ -32,12 +33,53 @@ app.post("/signup", (req, res) => {
         return res.status(400).json({ message: "User already exists" });
     }
 
-    users.push({ username, password, favorites: [] }); // Add empty favorites for new users
+    // Generate a unique ID for the user
+    const userID = crypto.randomBytes(6).toString("hex");
+
+    users.push({ id: userID, username, password, favorites: [] }); // Add user with unique ID
     saveUsers(users);
 
-    res.json({ success: true, message: "Signup successful" });
+    res.json({ success: true, message: "Signup successful", userID });
 });
 
+
+
+
+
+const path = require("path");
+
+// ✅ **Serve favourites.html**
+app.get("/favourites.html", (req, res) => {
+    res.sendFile(path.join(__dirname, "favourites.html"));
+});
+
+
+
+
+app.get("/get-user-id", (req, res) => {
+    let users = getUsers();
+    const { username } = req.query;
+
+    let user = users.find(user => user.username === username);
+    if (!user) {
+        return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    res.json({ success: true, userID: user.id });
+});
+
+// ✅ Fix: Corrected API Route to Get User Favorites by ID
+app.get("/api/user-favorites/:userID", (req, res) => {
+    let users = getUsers();
+    const { userID } = req.params;
+
+    let user = users.find(user => user.id === userID);
+    if (!user) {
+        return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    res.json({ success: true, username: user.username, favorites: user.favorites || [] });
+});
 
 
 
