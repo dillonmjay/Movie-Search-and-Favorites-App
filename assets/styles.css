@@ -474,7 +474,6 @@ button:hover {
     width: 100%;
     text-align: center;
 }
-
 #authModal input {
     width: 92%;
     padding: 10px;
@@ -482,7 +481,6 @@ button:hover {
     border-radius: 4px;
     border: 1px solid #ccc;
 }
-
 #authModal button {
     width: 100%;
     padding: 10px;
@@ -493,9 +491,11 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
-
 #authModal button:hover {
     background: #9224d6;
+}
+#usernameDisplay {
+    text-transform: capitalize;
 }
 .auth-modal.show {
     display: flex;

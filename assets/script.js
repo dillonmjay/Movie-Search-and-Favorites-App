@@ -316,7 +316,7 @@ function checkLoginStatus() {
 
         // Hide login/signup form
         authForm.style.display = "none";
-        authTitle.textContent = "Welcome Back!";
+        authTitle.textContent = "Hello! Nice to See you Again.";
     } else {
         // No user logged in - Show login/signup form
         userGreeting.style.display = "none";
