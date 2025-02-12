@@ -77,5 +77,17 @@
         "poster": "https://m.media-amazon.com/images/M/MV5BMTUyOTIwMTU5MV5BMl5BanBnXkFtZTcwNDY5NjA1Mw@@._V1_SX300.jpg"
       }
     ]
+  },
+  {
+    "id": "68fafb616a88",
+    "username": "dillon",
+    "password": "123",
+    "favorites": [
+      {
+        "id": "tt2369135",
+        "title": "Need for Speed",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3ODY4NzYzOF5BMl5BanBnXkFtZTgwNjI3OTE4MDE@._V1_SX300.jpg"
+      }
+    ]
   }
 ]
