@@ -1,17 +1,60 @@
 [
-    {
-        "username": "user1",
-        "password": "password1",
-        "favorites": []
-    },
-    {
-        "username": "user2",
-        "password": "password2",
-        "favorites": []
-    },
-    {
-        "username": "dj",
-        "password": "dj",
-        "favorites": []
-    }
+  {
+    "username": "john_doe",
+    "password": "securepassword123",
+    "favorites": [
+      {
+        "id": "tt1234567",
+        "title": "Inception",
+        "poster": "https://image-link.com/inception.jpg"
+      }
+    ]
+  },
+  {
+    "username": "jason.20210007@iit.ac.lk",
+    "password": "123",
+    "favorites": [
+      {
+        "id": "tt2096673",
+        "title": "Inside Out",
+        "poster": "https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_SX300.jpg"
+      },
+      {
+        "id": "tt22022452",
+        "title": "Inside Out 2",
+        "poster": "https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_SX300.jpg"
+      },
+      {
+        "id": "tt0369702",
+        "title": "The Sea Inside",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMjE0NDk2NjgwMV5BMl5BanBnXkFtZTYwMTgyMzA3._V1_SX300.jpg"
+      },
+      {
+        "id": "tt1645089",
+        "title": "Inside Job",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3MjkyODA2Nl5BMl5BanBnXkFtZTcwNzQxMTU4Mw@@._V1_SX300.jpg"
+      },
+      {
+        "id": "tt0954947",
+        "title": "The Killer Inside Me",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTUyOTIwMTU5MV5BMl5BanBnXkFtZTcwNDY5NjA1Mw@@._V1_SX300.jpg"
+      }
+    ]
+  },
+  {
+    "username": "love",
+    "password": "123",
+    "favorites": []
+  },
+  {
+    "username": "admin",
+    "password": "admin",
+    "favorites": [
+      {
+        "id": "tt2369135",
+        "title": "Need for Speed",
+        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3ODY4NzYzOF5BMl5BanBnXkFtZTgwNjI3OTE4MDE@._V1_SX300.jpg"
+      }
+    ]
+  }
 ]
