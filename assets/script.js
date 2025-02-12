@@ -246,6 +246,7 @@ favClose.addEventListener('click', () => {
 //////////////////////////////////////////////////////////////////////
 const toggleBtn = document.getElementById("toggleMode");
 const toggleIcon = document.getElementById("toggleIcon");
+const profileImg = document.getElementById("profileImg");
 
 function toggleTheme() {
     document.body.classList.toggle("light-mode");
@@ -261,9 +262,11 @@ function toggleTheme() {
     // Save mode preference in localStorage and change icon
     if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
+        profileImg.src = "assets/images/profile-light.png";
         toggleIcon.src = "assets/images/sun.png"; // Light Mode Icon
     } else {
         localStorage.setItem("theme", "dark");
+        profileImg.src = "assets/images/profile-dark.png";
         toggleIcon.src = "assets/images/crescent-moon.png"; // Dark Mode Icon
     }
 }
@@ -272,14 +275,26 @@ function toggleTheme() {
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
+        profileImg.src = "assets/images/profile-light.png";
         toggleIcon.src = "assets/images/sun.png";
     }
 });
 
 toggleBtn.addEventListener("click", toggleTheme);
 
+///////////////////////////////////////////////////////////////////
+const profileBtn = document.getElementById("profileBtn");
+const authModal= document.getElementById("authModal");
+const authClose = document.getElementById("authClose");
 
-
+profileBtn.addEventListener('click', () => {
+    authModal.classList.add("show");
+    document.body.classList.add("hide-scroll");
+});
+authClose.addEventListener('click', () => {
+    authModal.classList.remove("show");
+    document.body.classList.remove("hide-scroll");
+});
 
 
 

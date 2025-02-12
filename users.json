@@ -17,11 +17,6 @@
     "password": "admin",
     "favorites": [
       {
-        "id": "tt4126476",
-        "title": "After",
-        "poster": "https://m.media-amazon.com/images/M/MV5BNjEyMjhmODItNWI2Zi00ODBiLWExNWItYjgwYWIzNjJhODI5XkEyXkFqcGc@._V1_SX300.jpg"
-      },
-      {
         "id": "tt2369135",
         "title": "Need for Speed",
         "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3ODY4NzYzOF5BMl5BanBnXkFtZTgwNjI3OTE4MDE@._V1_SX300.jpg"
@@ -99,5 +94,11 @@
         "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3ODY4NzYzOF5BMl5BanBnXkFtZTgwNjI3OTE4MDE@._V1_SX300.jpg"
       }
     ]
+  },
+  {
+    "id": "00e696ce87bb",
+    "username": "DILLONMICHAELJAY@GMAIL.COM",
+    "password": "DILLONMICHAELJAY@GMAIL.COM",
+    "favorites": []
   }
 ]

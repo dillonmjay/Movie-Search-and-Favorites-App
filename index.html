@@ -12,9 +12,9 @@
 </head>
 <body>
     <!-- login/signup -->
-    <div id="authModal" class="modal-2">
+    <div id="authModal" class="auth-modal">
         <div class="modal-content">
-            <span class="close" onclick="closeAuthModal()">&times;</span>
+            <span id="authClose" class="close">&times;</span>
             <h2>Login / Sign Up</h2>
             <form id="authForm">
                 <input type="text" id="username" placeholder="Username" required>
@@ -22,6 +22,7 @@
                 <button type="button" onclick="login()">Login</button>
                 <button type="button" onclick="signup()">Sign Up</button>
             </form>
+            <button>Log Out</button>
         </div>
     </div>
     <div class="container">
@@ -31,6 +32,9 @@
                 <input type="text" id="searchInput" placeholder="Search for a movie...">
                 <input type="text" id="searchYear" placeholder="Year">
                 <button id="searchButton">Search</button>
+            </div>
+            <div id="profileBtn" class="heart">
+                <img id="profileImg" src="assets/images/profile-dark.png" alt="favorite">
             </div>
             <div id="heartBtn" class="heart">
                 <img src="assets/images/heart.png" alt="favorite">
@@ -57,7 +61,7 @@
         <span id="favClose" class="close fav-close">&times;</span>
         <div class="favorite-movies" id="favoriteMovies"></div>
         <p id="shareLinkContainer" style="display: none;">
-            📢 Share this link: <br>
+            Share your favorites with this link: <br>
             <a id="shareLink" href="#" target="_blank" style="color: #a728f5; text-decoration: underline;"></a>
         </p>
     </div>
