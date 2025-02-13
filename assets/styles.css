@@ -135,6 +135,7 @@ button:hover {
 
 .search-container {
     display: flex;
+    position: relative;
     align-items: center;
     width: 700px;
     background: var(--search-bg);
@@ -156,9 +157,11 @@ button:hover {
     font-weight: 400;
     font-style: normal;
     font-size: 14px;
+    max-width: 480px;
 }
 
 #searchYear {
+    width: 100%;
     max-width: 100px;
     /* border-radius: 50px 0 0 50px; */
     border-left: 1px solid var(--button-bg);
@@ -175,7 +178,8 @@ button:hover {
     height: 45px;
     /* border-radius: 0 25px 25px 0; */
     margin: 0px;
-    width: 100%;
+    right: 0;
+    position: absolute;
 }
 
 .search-container button:hover {
@@ -257,6 +261,10 @@ button:hover {
         max-width: 600px;
     }
 
+    .search-container input {
+        max-width: 380px;
+    }
+
     .heart img, .profile img {
         height: 35px;
     }
@@ -287,6 +295,10 @@ button:hover {
     .search-container {
         width: 95%;
         max-width: 500px;
+    }
+
+    .search-container input {
+        max-width: 280px;
     }
 
     .heart, .profile, .toggle-btn {
@@ -327,6 +339,18 @@ button:hover {
     }
 }
 
+@media screen and (max-width: 540px) {
+    .search-container input {
+        max-width: 250px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .search-container input {
+        max-width: 200px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .container {
         padding: 10px;
@@ -341,6 +365,10 @@ button:hover {
         width: 100%;
         max-width: 400px;
         max-height: 40px;
+    }
+
+    .search-container input {
+        max-width: 185px;
     }
 
     .heart img, .profile img {
