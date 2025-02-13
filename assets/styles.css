@@ -242,6 +242,145 @@ button:hover {
 }
 /*///////////////////////////////////////////////////////////////////////////*/
 
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .container-flex-1 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .search-container {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .heart img {
+        height: 35px;
+    }
+
+    #favoriteCount {
+        font-size: 10px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .toggle-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .toggle-btn img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container-flex-1 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-container {
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .heart, .profile, .toggle-btn {
+        position: absolute;
+        top: 11px;
+        right: 0;
+        margin-right: 80px;
+    }
+
+    .profile {
+        margin-right: 130px;
+    }
+
+    .heart img {
+        height: 30px;
+    }
+
+    #favoriteCount {
+        font-size: 10px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .toggle-btn {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        margin-right: 30px;
+    }
+
+    .toggle-btn img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .container-flex-1 {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: 400px;
+        max-height: 40px;
+    }
+
+    .heart img {
+        height: 28px;
+    }
+
+    .profile {
+        left: 50%;
+        margin-right: 0;
+    }
+
+    #favoriteCount {
+        font-size: 9px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .toggle-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .toggle-btn img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .search-container {
+        max-width: 350px;
+    }
+
+    .search-container input {
+        max-width: 135px;
+    }
+}
 
 /*///////////////////////////////////////////////////////////////////////////*/
 .movie {
