@@ -248,6 +248,7 @@ heartBtn.addEventListener('click', () => {
 document.addEventListener("DOMContentLoaded", () => {
     if (localStorage.getItem("favoritesOpen") === "true") {
         favourite.classList.add("show");
+        document.body.classList.add("hide-scroll");
     }
 });
 
