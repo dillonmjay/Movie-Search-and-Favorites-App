@@ -150,7 +150,7 @@ async function addToFavorites(id, title, poster) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username: loggedInUser, id, title, poster })
         });
-
+        window.location.reload(); // Reload page to reflect changes
         updateFavoriteCount(); // Update UI count
     } else {
         // Save to localStorage if no user is logged in
@@ -159,11 +159,10 @@ async function addToFavorites(id, title, poster) {
             favorites.push({ id, title, poster });
             localStorage.setItem("favorites", JSON.stringify(favorites));
         }
-
+        window.location.reload(); // Reload page to reflect changes
         updateFavoriteCount();
     }
 }
-
 
 async function displayFavorites() {
     const loggedInUser = localStorage.getItem("user");
@@ -196,7 +195,6 @@ async function displayFavorites() {
         updateFavoriteCount();
     } catch (error) {
         console.error("Error fetching favorites:", error);
-        alert("Could not load favorites. Please try again.");
     }
 }
 
