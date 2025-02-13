@@ -187,7 +187,7 @@ async function displayFavorites() {
         const favoriteMoviesContainer = document.getElementById("favoriteMovies");
 
         if (favorites.length === 0) {
-            favoriteMoviesContainer.innerHTML = `<p id="emptyMsg">Favorites are empty</p>`;
+            favoriteMoviesContainer.innerHTML = `<p id="emptyMsg">Favorites are empty :)</p>`;
         } else {
             favoriteMoviesContainer.innerHTML = favorites.map(movie => `
                 <div class="movie">

@@ -600,7 +600,7 @@ button:hover {
 }
 
 #emptyMsg {
-    color: #a728f5;
+    color: var(--text-color);
     text-align: center;
     font-size: 16px;
     position: absolute;
