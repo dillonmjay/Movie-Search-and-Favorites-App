@@ -599,6 +599,15 @@ button:hover {
     font-weight: 600;
 }
 
+#emptyMsg {
+    color: #a728f5;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+}
 /*///////////////////////////////////////////////////////////////////////////*/
 
 /*///////////////////////////////////////////////////////////////////////////*/

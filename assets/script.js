@@ -184,19 +184,26 @@ async function displayFavorites() {
 
         console.log("Fetched Favorites:", favorites); // Debugging
 
-        document.getElementById("favoriteMovies").innerHTML = favorites.map(movie => `
-            <div class="movie">
-                <img src="${movie.poster}" alt="${movie.title}">
-                <h3 onclick="viewMovieDetails('${movie.id}')">${movie.title}</h3>
-                <button onclick="removeFromFavorites('${movie.id}')">Remove</button>
-            </div>
-        `).join('');
+        const favoriteMoviesContainer = document.getElementById("favoriteMovies");
+
+        if (favorites.length === 0) {
+            favoriteMoviesContainer.innerHTML = `<p id="emptyMsg">Favorites are empty</p>`;
+        } else {
+            favoriteMoviesContainer.innerHTML = favorites.map(movie => `
+                <div class="movie">
+                    <img src="${movie.poster}" alt="${movie.title}">
+                    <h3 onclick="viewMovieDetails('${movie.id}')">${movie.title}</h3>
+                    <button onclick="removeFromFavorites('${movie.id}')">Remove</button>
+                </div>
+            `).join('');
+        }
 
         updateFavoriteCount();
     } catch (error) {
         console.error("Error fetching favorites:", error);
     }
 }
+
 
 
 async function removeFromFavorites(id) {
