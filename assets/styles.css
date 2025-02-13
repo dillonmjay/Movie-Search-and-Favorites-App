@@ -27,7 +27,7 @@
 }
 
 html {
-
+    scroll-behavior: smooth;
 }
 a, button, div {
     -webkit-tap-highlight-color: transparent;
@@ -110,6 +110,11 @@ body.hide-scroll {
 
 .search-close.show {
     display: block;
+}
+
+.movie-results,
+.favorite-movies {
+    scroll-behavior: smooth;
 }
 
 /* Tablet View */
