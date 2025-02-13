@@ -113,7 +113,7 @@ This project is **MIT Licensed**. Feel free to fork and modify it! 🎮
 ---
 
 ## **📩 Contact**
-🔹 **GitHub**: [YourUsername](https://github.com/dillonmjay)  
+🔹 **GitHub**: [dillonmjay](https://github.com/dillonmjay)  
 🔹 **Email**: dillonmichaeljay@email.com  
 
 ---
