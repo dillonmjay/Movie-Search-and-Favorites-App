@@ -217,10 +217,10 @@ async function removeFromFavorites(id) {
             localStorage.setItem("favorites", JSON.stringify(favorites));
         }
 
-        displayFavorites(); // Refresh UI
+        displayFavorites(); // Refresh UI without alert
+        window.location.reload(); // Reload page to reflect changes
     } catch (error) {
         console.error("Error removing favorite:", error);
-        alert("Could not remove favorite. Please try again.");
     }
 }
 
@@ -239,9 +239,25 @@ heartBtn.addEventListener('click', () => {
     favourite.classList.add("show");
     document.body.classList.add("hide-scroll");
 });
-favClose.addEventListener('click', () => {
+// Check localStorage to keep favorites open after refresh
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("favoritesOpen") === "true") {
+        favourite.classList.add("show");
+    }
+});
+
+// Close favorites ONLY when close button is clicked
+favClose.addEventListener("click", () => {
     favourite.classList.remove("show");
     document.body.classList.remove("hide-scroll");
+    localStorage.setItem("favoritesOpen", "false"); // Save state
+});
+
+// Open favorites and persist state
+document.getElementById("heartBtn").addEventListener("click", () => {
+    favourite.classList.add("show");
+    document.body.classList.add("hide-scroll");
+    localStorage.setItem("favoritesOpen", "true"); // Save state
 });
 //////////////////////////////////////////////////////////////////////
 const toggleBtn = document.getElementById("toggleMode");
