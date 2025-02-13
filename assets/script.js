@@ -5,6 +5,7 @@ const movieResults = document.getElementById('movieResults');
 const favoriteMovies = document.getElementById('favoriteMovies');
 const searchClose = document.getElementById('searchClose')
 
+// Save search input and results to localStorage
 searchButton.addEventListener('click', () => {
     const query = searchInput.value.trim();
     const year = searchYear.value.trim();
@@ -27,9 +28,16 @@ searchButton.addEventListener('click', () => {
                             <button onclick="addToFavorites('${movie.imdbID}', '${movie.Title}', '${movie.Poster}')">Add to Favorites</button>
                         </div>
                     `).join('');
+
+                    // Save search input and results to localStorage
+                    localStorage.setItem("searchQuery", query);
+                    localStorage.setItem("searchYear", year);
+                    localStorage.setItem("searchResults", movieResults.innerHTML);
+                    localStorage.setItem("searchVisible", "true");
                 } else {
                     movieResults.innerHTML = '<p>No results found</p>';
                 }
+
                 movieResults.classList.add("show");
                 searchClose.classList.add("show");
                 document.body.classList.add("hide-scroll");
@@ -37,16 +45,39 @@ searchButton.addEventListener('click', () => {
     }
 });
 
+// Close search results and clear localStorage
 searchClose.addEventListener('click', () => {
     movieResults.classList.remove("show");
     searchClose.classList.remove("show");
     document.body.classList.remove("hide-scroll");
+
+    // Clear search persistence when closed
+    localStorage.removeItem("searchQuery");
+    localStorage.removeItem("searchYear");
+    localStorage.removeItem("searchResults");
+    localStorage.removeItem("searchVisible");
+});
+
+// Restore search inputs and results on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const savedQuery = localStorage.getItem("searchQuery");
+    const savedYear = localStorage.getItem("searchYear");
+    const savedResults = localStorage.getItem("searchResults");
+    const isSearchVisible = localStorage.getItem("searchVisible");
+
+    if (savedQuery) searchInput.value = savedQuery;
+    if (savedYear) searchYear.value = savedYear;
+    if (savedResults) movieResults.innerHTML = savedResults;
+
+    if (isSearchVisible === "true") {
+        movieResults.classList.add("show");
+        searchClose.classList.add("show");
+        document.body.classList.add("hide-scroll");
+    }
 });
 
 
 //////////////////////////////////////////////////////////////////
-
-
 const latestMoviesContainer = document.getElementById("latestMovies");
         
 
