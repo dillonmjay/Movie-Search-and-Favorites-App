@@ -33,7 +33,6 @@ a, button, div {
     -webkit-tap-highlight-color: transparent;
 }
 body {
-    font-family: Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     text-align: center;

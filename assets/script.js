@@ -79,29 +79,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //////////////////////////////////////////////////////////////////
 const latestMoviesContainer = document.getElementById("latestMovies");
-        
 
-        function fetchLatestMovies() {
-            fetch(`https://www.omdbapi.com/?s=inside&type=movie&apikey=${apiKey}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.Response === "True") {
-                        latestMoviesContainer.innerHTML = data.Search.slice(0, 10).map(movie => `
-                            <div class="new-movie">
-                                <img src="${movie.Poster}" alt="${movie.Title}" onclick="viewMovieDetails('${movie.imdbID}')">
-                                <h3 onclick="viewMovieDetails('${movie.imdbID}')">${movie.Title} (${movie.Year})</h3>
-                                <button onclick="addToFavorites('${movie.imdbID}', '${movie.Title}', '${movie.Poster}')">Add to Favorites</button>
-                            </div>
-                        `).join('');
-                    } else {
-                        latestMoviesContainer.innerHTML = '<p>No latest movies found.</p>';
-                    }
-                })
-                .catch(error => console.error("Error fetching latest movies:", error));
+// Fetch and store recommended movies in localStorage
+async function fetchLatestMovies() {
+    let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+    let storedMovies = JSON.parse(localStorage.getItem("latestMovies")) || [];
+
+    // Use the last 3 search terms (or fallback to a default)
+    let recentSearches = searchHistory.slice(-3);
+    if (recentSearches.length === 0) recentSearches = ["love", "war", "mission"]; // Default recommendations
+
+    // Load from localStorage if available
+    if (storedMovies.length > 0) {
+        latestMoviesContainer.innerHTML = storedMovies.map(movie => `
+            <div class="new-movie">
+                <img src="${movie.Poster}" alt="${movie.Title}" onclick="viewMovieDetails('${movie.imdbID}')">
+                <h3 onclick="viewMovieDetails('${movie.imdbID}')">${movie.Title} (${movie.Year})</h3>
+                <button onclick="addToFavorites('${movie.imdbID}', '${movie.Title}', '${movie.Poster}')">Add to Favorites</button>
+            </div>
+        `).join('');
+        console.log("Loaded recommendations from localStorage.");
+        return;
+    }
+
+    latestMoviesContainer.innerHTML = "<p>Loading recommendations...</p>"; // Show loading text
+    let allMovies = [];
+
+    for (let search of recentSearches) {
+        try {
+            let response = await fetch(`https://www.omdbapi.com/?s=${search}&type=movie&apikey=${apiKey}`);
+            let data = await response.json();
+
+            if (data.Response === "True") {
+                allMovies.push(...data.Search.slice(0, 10)); // Get top 10 movies per search
+            }
+        } catch (error) {
+            console.error(`Error fetching movies for ${search}:`, error);
+        }
+    }
+
+    if (allMovies.length > 0) {
+        latestMoviesContainer.innerHTML = allMovies.slice(0, 30).map(movie => `
+            <div class="new-movie">
+                <img src="${movie.Poster}" alt="${movie.Title}" onclick="viewMovieDetails('${movie.imdbID}')">
+                <h3 onclick="viewMovieDetails('${movie.imdbID}')">${movie.Title} (${movie.Year})</h3>
+                <button onclick="addToFavorites('${movie.imdbID}', '${movie.Title}', '${movie.Poster}')">Add to Favorites</button>
+            </div>
+        `).join('');
+
+        // Store recommendations in localStorage
+        localStorage.setItem("latestMovies", JSON.stringify(allMovies.slice(0, 30)));
+    } else {
+        latestMoviesContainer.innerHTML = "<p>No latest movies found.</p>";
+    }
+}
+
+// Update search history when user searches
+searchButton.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if (query) {
+        let searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+        // Avoid duplicate consecutive searches
+        if (searchHistory[searchHistory.length - 1] !== query) {
+            searchHistory.push(query);
+            if (searchHistory.length > 10) searchHistory.shift(); // Limit stored searches to 10
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
         }
 
-        document.addEventListener("DOMContentLoaded", fetchLatestMovies);
+        // Clear stored recommendations and fetch new ones
+        localStorage.removeItem("latestMovies");
+        fetchLatestMovies();
+    }
+});
 
+// Load recommended movies on page load
+document.addEventListener("DOMContentLoaded", fetchLatestMovies);
 /////////////////////////////////////////////////////////////////////
 
 function viewMovieDetails(movieID) {
