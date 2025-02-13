@@ -14,7 +14,7 @@ Welcome to **Movie Search and Favorites App**, a sleek and modern movie search p
 ---
 
 ## **🚀 Live Demo**
-🔗 **[Live Version](https://dxdymovie.netlify.app/)** _(Replace with your deployed URL)_
+🔗 **[Live Version](https://dxdymovie.netlify.app/)**
 
 ---
 
