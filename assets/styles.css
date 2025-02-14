@@ -5,7 +5,6 @@
     --button-bg: #a728f5;
     --heart-bg: red;
 }
-
 /* Light Mode Variables */
 .light-mode {
     --bg-color: #ffffff;
@@ -117,60 +116,6 @@ body.hide-scroll {
     scroll-behavior: smooth;
 }
 
-/* Tablet View */
-@media screen and (max-width: 1024px) {
-    .movie-results {
-        width: 90%;
-        max-height: 350px;
-        padding: 12px;
-    }
-
-    .search-close {
-        font-size: 35px;
-        bottom: -50px;
-    }
-}
-
-/* Mobile View */
-@media screen and (max-width: 768px) {
-    .movie-results {
-        width: 95%;
-        max-height: 300px;
-        padding: 10px;
-    }
-
-    .search-close {
-        font-size: 30px;
-        bottom: -40px;
-    }
-}
-
-/* Small Mobile View */
-@media screen and (max-width: 480px) {
-    .movie-results {
-        width: 98%;
-        max-height: 250px;
-        padding: 8px;
-    }
-
-    .search-close {
-        font-size: 28px;
-        bottom: -30px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 .container h1 {
     margin: 0;
     font-size: 30px;
@@ -179,7 +124,6 @@ body.hide-scroll {
     font-weight: 700;
     font-style: normal;
 }
-
 
 button {
     padding: 10px 15px;
@@ -193,11 +137,6 @@ button {
 button:hover {
     background: #9224d6;
 }
-
-
-
-
-
 
 .search-container {
     display: flex;
@@ -255,17 +194,19 @@ button:hover {
 /*///////////////////////////////////////////////////////////////////////////*/
 
 /*///////////////////////////////////////////////////////////////////////////*/
-
 .heart, .profile {
     position: relative;
     cursor: pointer;
 }
+
 .heart img, .profile img {
     height: 40px;
 }
+
 .heart img:hover {
     transform: scale(1.1);
 }
+
 #favoriteCount {
     position: absolute;
     top: -5px;
@@ -281,6 +222,9 @@ button:hover {
     border-radius: 50%;
     font-weight: bold;
 }
+
+/*///////////////////////////////////////////////////////////////////////////*/
+
 /*///////////////////////////////////////////////////////////////////////////*/
 @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -314,172 +258,6 @@ button:hover {
 }
 /*///////////////////////////////////////////////////////////////////////////*/
 
-/* Responsive Styles */
-@media screen and (max-width: 1024px) {
-    .container-flex-1 {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    
-    .search-container {
-        width: 90%;
-        max-width: 600px;
-    }
-
-    .search-container input {
-        max-width: 380px;
-    }
-
-    .heart img, .profile img {
-        height: 35px;
-    }
-
-    #favoriteCount {
-        font-size: 10px;
-        width: 16px;
-        height: 16px;
-    }
-
-    .toggle-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .toggle-btn img {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .container-flex-1 {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .search-container {
-        width: 95%;
-        max-width: 500px;
-    }
-
-    .search-container input {
-        max-width: 280px;
-    }
-
-    .heart, .profile, .toggle-btn {
-        position: absolute;
-        top: 11px;
-        right: 0;
-        margin-right: 80px;
-    }
-
-    .profile {
-        margin-right: 130px;
-    }
-
-    .heart img, .profile img {
-        height: 30px;
-    }
-
-    #favoriteCount {
-        font-size: 10px;
-        width: 15px;
-        height: 15px;
-    }
-
-    .toggle-btn {
-        width: 35px;
-        height: 35px;
-        position: absolute;
-        margin-right: 30px;
-    }
-
-    .toggle-btn img {
-        width: 25px;
-        height: 25px;
-    }
-
-    .container h1 {
-        font-size: 24px;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .search-container input {
-        max-width: 250px;
-    }
-}
-
-@media screen and (max-width: 495px) {
-    .search-container input {
-        max-width: 200px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-
-    .container-flex-1 {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .search-container {
-        width: 100%;
-        max-width: 400px;
-        max-height: 40px;
-    }
-
-    .search-container input {
-        max-width: 185px;
-    }
-
-    .heart img, .profile img {
-        height: 28px;
-    }
-
-    .profile {
-        left: 0;
-        right: auto;
-        margin-right: 0;
-        margin-left: 30px;
-    }
-
-    #favoriteCount {
-        font-size: 9px;
-        width: 14px;
-        height: 14px;
-    }
-
-    .toggle-btn {
-        width: 30px;
-        height: 30px;
-    }
-
-    .toggle-btn img {
-        width: 22px;
-        height: 22px;
-    }
-
-    .container h1 {
-        font-size: 20px;
-    }
-}
-
-
-@media screen and (max-width: 420px) {
-    .search-container {
-        max-width: 350px;
-    }
-
-    .search-container input {
-        max-width: 135px;
-    }
-}
-
 /*///////////////////////////////////////////////////////////////////////////*/
 .movie {
     display: flex;
@@ -493,61 +271,39 @@ button:hover {
     transition: 0.3s;
     backdrop-filter: blur(8px);
 }
+
 .movie:hover {
     transform: scale(1.02);
 }
+
 .movie img {
     width: 80px;
     height: auto;
     border-radius: 4px;
 }
+
 .movie h3 {
     flex: 1;
     margin-left: 10px;
     cursor: pointer;
 }
+
 .movie button {
     background: #ff0099;
 }
+
 .movie button:hover {
     background: #e6007e;
 }
-/*///////////////////////////////////////////////////////////////////////////*/
-
-
-
-/* .movie-results {
-    margin: 20px auto;
-    background: var(--search-bg);
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-width: 1000px;
-    margin-top: 80px;
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: auto;
-    max-height: 500px;
-
-    left: 50%;
-    transform: translateX(-50%); 
-    padding: 15px 20px;
-    z-index: 999;
-} */
 
 .close {
     float: right;
     font-size: 35px;
     cursor: pointer;
 }
-
 /*///////////////////////////////////////////////////////////////////////////*/
 
+/*///////////////////////////////////////////////////////////////////////////*/
 .hero {
     margin: 100px auto;
     text-align: center;
@@ -562,7 +318,6 @@ button:hover {
     
 }
 
-
 .lastest-movies {
     display: flex;
     flex-wrap: wrap;
@@ -576,7 +331,7 @@ button:hover {
     position: relative;
     align-items: center;
     background: var(--search-bg);
-    width: 215px; /* Adjust width */
+    width: 215px;
     height: 400px;
     padding: 10px;
     border-radius: 6px;
@@ -611,7 +366,6 @@ button:hover {
 /*///////////////////////////////////////////////////////////////////////////*/
 
 /*///////////////////////////////////////////////////////////////////////////*/
-
 .favourite {
     position: fixed;
     top: 0;
@@ -680,9 +434,211 @@ button:hover {
     transform: translate(-50%);
 }
 
+/*///////////////////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////////////////*/
+.auth-modal, .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    z-index: 99999;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    text-align: left;
+    color: var(--text-color);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content #moviePoster {
+    max-height: 350px;
+    width: auto;
+}
+
+#authModal .modal-content {
+    max-width: 300px;
+    min-width: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+#authModal input {
+    width: 92%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#authModal button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: none;
+    background: var(--button-bg);
+    color: #fff;
+    cursor: pointer;
+}
+
+#authModal button:hover {
+    background: #9224d6;
+}
+
+#usernameDisplay {
+    text-transform: capitalize;
+}
+
+.auth-modal.show {
+    display: flex;
+}
+
+/*///////////////////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////////////////////////////////////////////////*/
+.footer-bottom {
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    z-index: 3;
+}
+
+.footer-bottom .jello {
+    text-decoration: none;
+    color: var(--button-bg);
+}
+
+/*///////////////////////////////////////////////////////////////////////////*/
+
+/* Responsive Styles */
+
+/* Tablet View */
+@media screen and (max-width: 1024px) {
+    .container-flex-1 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .search-container {
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .search-container input {
+        max-width: 380px;
+    }
+
+    .heart img, .profile img {
+        height: 35px;
+    }
+
+    #favoriteCount {
+        font-size: 10px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .toggle-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .toggle-btn img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .movie-results {
+        width: 90%;
+        max-height: 350px;
+        padding: 12px;
+    }
+
+    .search-close {
+        font-size: 35px;
+        bottom: -50px;
+    }
+}
 
 /* Mobile View */
 @media screen and (max-width: 768px) {
+    .container-flex-1 {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-container {
+        width: 95%;
+        max-width: 500px;
+    }
+
+    .search-container input {
+        max-width: 280px;
+    }
+
+    .heart, .profile, .toggle-btn {
+        position: absolute;
+        top: 11px;
+        right: 0;
+        margin-right: 80px;
+    }
+
+    .profile {
+        margin-right: 130px;
+    }
+
+    .heart img, .profile img {
+        height: 30px;
+    }
+
+    #favoriteCount {
+        font-size: 10px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .toggle-btn {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        margin-right: 30px;
+    }
+
+    .toggle-btn img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+    
+    .movie-results {
+        width: 95%;
+        max-height: 300px;
+        padding: 10px;
+    }
+
+    .search-close {
+        font-size: 30px;
+        bottom: -40px;
+    }
+
     .favourite {
         width: 100vw;
         height: 100vh;
@@ -717,6 +673,67 @@ button:hover {
 
 /* Small Mobile View */
 @media screen and (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .container-flex-1 {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: 400px;
+        max-height: 40px;
+    }
+
+    .search-container input {
+        max-width: 185px;
+    }
+
+    .heart img, .profile img {
+        height: 28px;
+    }
+
+    .profile {
+        left: 0;
+        right: auto;
+        margin-right: 0;
+        margin-left: 30px;
+    }
+
+    #favoriteCount {
+        font-size: 9px;
+        width: 14px;
+        height: 14px;
+    }
+
+    .toggle-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .toggle-btn img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+
+    .movie-results {
+        width: 98%;
+        max-height: 250px;
+        padding: 8px;
+    }
+
+    .search-close {
+        font-size: 28px;
+        bottom: -30px;
+    }
+
     .favourite {
         padding: 5px;
     }
@@ -745,99 +762,24 @@ button:hover {
     }
 }
 
-/*///////////////////////////////////////////////////////////////////////////*/
-
-/*///////////////////////////////////////////////////////////////////////////*/
-.auth-modal, .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(12px);
-    z-index: 99999;
-}
-.modal-content {
-    background: var(--bg-color);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    text-align: left;
-    color: var(--text-color);
-    backdrop-filter: blur(8px);
-}
-.modal-content #moviePoster {
-    max-height: 350px;
-    width: auto;
+@media screen and (max-width: 540px) {
+    .search-container input {
+        max-width: 250px;
+    }
 }
 
-/*///////////////////////////////////////////////////////////////////////////*/
-.auth-modal {
-    display: none;
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(12px);
-    z-index: 99999;
-}
-#authModal .modal-content {
-    max-width: 300px;
-    min-width: 200px;
-    width: 100%;
-    text-align: center;
-}
-#authModal input {
-    width: 92%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-#authModal button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 4px;
-    border: none;
-    background: var(--button-bg);
-    color: #fff;
-    cursor: pointer;
-}
-#authModal button:hover {
-    background: #9224d6;
-}
-#usernameDisplay {
-    text-transform: capitalize;
-}
-.auth-modal.show {
-    display: flex;
+@media screen and (max-width: 495px) {
+    .search-container input {
+        max-width: 200px;
+    }
 }
 
+@media screen and (max-width: 420px) {
+    .search-container {
+        max-width: 350px;
+    }
 
-
-/*///////////////////////////////////////////////////////////////////////////*/
-.footer-bottom {
-    background-color: transparent;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    z-index: 3;
-}
-
-.footer-bottom .jello {
-    text-decoration: none;
-    color: var(--button-bg);
+    .search-container input {
+        max-width: 135px;
+    }
 }
