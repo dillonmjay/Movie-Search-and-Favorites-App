@@ -202,13 +202,7 @@
     "id": "68fafb616a88",
     "username": "dillon",
     "password": "123",
-    "favorites": [
-      {
-        "id": "tt1645089",
-        "title": "Inside Job",
-        "poster": "https://m.media-amazon.com/images/M/MV5BMTQ3MjkyODA2Nl5BMl5BanBnXkFtZTcwNzQxMTU4Mw@@._V1_SX300.jpg"
-      }
-    ]
+    "favorites": []
   },
   {
     "id": "10bea4fe8e31",
