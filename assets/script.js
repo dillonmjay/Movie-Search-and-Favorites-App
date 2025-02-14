@@ -425,10 +425,12 @@ document.addEventListener("DOMContentLoaded", checkLoginStatus);
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 async function signup() {
+    // Get username and password input values
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
-    const loginMessage = document.getElementById("loginMessage"); // Message div
+    const loginMessage = document.getElementById("loginMessage"); // Message div for feedback
 
+    // Check if inputs are empty
     if (!username || !password) {
         loginMessage.style.color = "red";
         loginMessage.textContent = "Please enter a username and password.";
@@ -436,27 +438,32 @@ async function signup() {
     }
 
     try {
+        // Send signup request to the backend server
         const response = await fetch("http://localhost:3000/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password }) // Convert data to JSON format
         });
 
-        const result = await response.json();
+        const result = await response.json(); // Parse the JSON response
 
         if (response.ok) {
+            // If signup is successful, display success message
             loginMessage.style.color = "green";
             loginMessage.textContent = result.message;
 
+            // Automatically login after signup (delay to show success message)
             setTimeout(() => {
                 loginMessage.textContent = "";
-                login(); // Auto-login after signup
+                login(); // Call the login function
             }, 1000);
         } else {
+            // If signup fails (e.g., username already exists), show error message
             loginMessage.style.color = "red";
             loginMessage.textContent = result.message;
         }
     } catch (error) {
+        // Handle errors if the request fails
         console.error("Signup Error:", error);
         loginMessage.style.color = "red";
         loginMessage.textContent = "Signup failed. Please try again.";
@@ -464,10 +471,12 @@ async function signup() {
 }
 
 async function login() {
+    // Get username and password input values
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
-    const loginMessage = document.getElementById("loginMessage"); // Message div
+    const loginMessage = document.getElementById("loginMessage"); // Message div for feedback
 
+    // Check if inputs are empty
     if (!username || !password) {
         loginMessage.style.color = "red";
         loginMessage.textContent = "Please enter both username and password.";
@@ -475,30 +484,41 @@ async function login() {
     }
 
     try {
+        // Send login request to the backend server
         const response = await fetch("http://localhost:3000/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password }) // Convert data to JSON format
         });
 
-        const result = await response.json();
+        const result = await response.json(); // Parse the JSON response
 
         if (result.success) {
+            // If login is successful, save user data in localStorage
             localStorage.setItem("user", username);
-            authModal.classList.remove("show"); // Close modal
-            document.body.classList.remove("hide-scroll");
-            displayFavorites(); // Refresh favorites
 
+            // Close the authentication modal after login
+            authModal.classList.remove("show"); 
+            document.body.classList.remove("hide-scroll");
+
+            // Refresh the favorites list to show user-specific data
+            displayFavorites();
+
+            // Show login success message
             loginMessage.style.color = "green";
             loginMessage.textContent = "Login successful! Redirecting...";
+
+            // Refresh the page after a short delay to update UI
             setTimeout(() => {
-                window.location.reload(); // Refresh to update UI
+                window.location.reload();
             }, 1000);
         } else {
+            // If login fails (e.g., incorrect credentials), show error message
             loginMessage.style.color = "red";
             loginMessage.textContent = result.message;
         }
     } catch (error) {
+        // Handle errors if the request fails
         console.error("Login Error:", error);
         loginMessage.style.color = "red";
         loginMessage.textContent = "Login failed. Please try again.";
@@ -506,44 +526,51 @@ async function login() {
 }
 
 async function generateShareLink() {
+    // Get logged-in user from localStorage
     const loggedInUser = localStorage.getItem("user");
 
+    // If no user is logged in, hide the share link section
     if (!loggedInUser) {
         document.getElementById("shareLinkContainer").style.display = "none";
         return;
     }
 
-    // Fetch user ID from the backend
-    const response = await fetch(`http://localhost:3000/get-user-id?username=${loggedInUser}`);
-    const data = await response.json();
+    try {
+        // Fetch user ID from the backend
+        const response = await fetch(`http://localhost:3000/get-user-id?username=${loggedInUser}`);
+        const data = await response.json();
 
-    if (!data.success) {
-        document.getElementById("shareLinkContainer").style.display = "none";
-        return;
-    }
+        // If user ID is not found, hide the share link section
+        if (!data.success) {
+            document.getElementById("shareLinkContainer").style.display = "none";
+            return;
+        }
 
-    const userID = data.userID;
-    const shareURL = `http://127.0.0.1:5500/favourites.html?id=${userID}`;
+        // Generate the shareable URL using the user ID
+        const userID = data.userID;
+        const shareURL = `http://127.0.0.1:5500/favourites.html?id=${userID}`;
 
-    // Show the share link
-    document.getElementById("shareLinkContainer").style.display = "block";
-    const shareLink = document.getElementById("shareLink");
-    shareLink.href = shareURL;
-    shareLink.textContent = "Copy"
+        // Display the share link
+        document.getElementById("shareLinkContainer").style.display = "block";
+        const shareLink = document.getElementById("shareLink");
+        shareLink.href = shareURL;
+        shareLink.textContent = "Copy";
 
-    // copy url
-    shareLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent the link from opening
-    
-        const shareURL = this.href; // Get the href value
-    
-        navigator.clipboard.writeText(shareURL).then(() => {
-            shareLink.textContent = "Copied"
-        }).catch(err => {
-            console.error("Failed to copy: ", err);
+        // Add an event listener to copy the URL when the link is clicked
+        shareLink.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the link from opening
+
+            navigator.clipboard.writeText(shareURL).then(() => {
+                shareLink.textContent = "Copied"; // Change text to "Copied" after copying
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
         });
-    });
+
+    } catch (error) {
+        console.error("Error generating share link:", error);
+    }
 }
 
-// Run on page load
+// Run on page load to generate the share link if the user is logged in
 document.addEventListener("DOMContentLoaded", generateShareLink);
