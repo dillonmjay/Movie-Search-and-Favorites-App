@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 //////////////////////////////////////////////////////////////////
 const latestMoviesContainer = document.getElementById("latestMovies");
 
@@ -155,8 +154,8 @@ searchButton.addEventListener("click", () => {
 
 // Load recommended movies on page load
 document.addEventListener("DOMContentLoaded", fetchLatestMovies);
-/////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////
 function viewMovieDetails(movieID) {
     fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=${apiKey}`)
         .then(response => response.json())
@@ -175,39 +174,7 @@ function closeModal() {
     document.getElementById("movieModal").style.display = "none";
 }
 
-// function updateFavoriteCount() {
-//     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-//     document.getElementById('favoriteCount').textContent = favorites.length;
-// }
-
-// function addToFavorites(id, title, poster) {
-//     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-//     if (!favorites.some(movie => movie.id === id)) {
-//         favorites.push({ id, title, poster });
-//         localStorage.setItem('favorites', JSON.stringify(favorites));
-//         displayFavorites();
-//         updateFavoriteCount(); // Update the count after adding
-//     }
-// }
-
-// function displayFavorites() {
-//     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-//     favoriteMovies.innerHTML = favorites.map(movie => `
-//         <div class="movie">
-//             <img src="${movie.poster}" alt="${movie.title}">
-//             <h3 onclick="viewMovieDetails('${movie.id}')">${movie.title}</h3>
-//             <button onclick="removeFromFavorites('${movie.id}')">Remove</button>
-//         </div>
-//     `).join('');
-// }
-
-// function removeFromFavorites(id) {
-//     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-//     favorites = favorites.filter(movie => movie.id !== id);
-//     localStorage.setItem('favorites', JSON.stringify(favorites));
-//     displayFavorites();
-//     updateFavoriteCount(); // Update the count after adding
-// }
+/////////////////////////////////////////////////////////////////////
 async function updateFavoriteCount() {
     const loggedInUser = localStorage.getItem("user");
 
@@ -222,7 +189,6 @@ async function updateFavoriteCount() {
         document.getElementById('favoriteCount').textContent = favorites.length;
     }
 }
-
 
 async function addToFavorites(id, title, poster) {
     const loggedInUser = localStorage.getItem("user");
@@ -288,8 +254,6 @@ async function displayFavorites() {
     }
 }
 
-
-
 async function removeFromFavorites(id) {
     const loggedInUser = localStorage.getItem("user");
 
@@ -318,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayFavorites();  // Show saved favorites when the page loads
     updateFavoriteCount();  // Update the favorites count on page load
 });
+/////////////////////////////////////////////////////////////////////
 
 //////////////////////heart button////////////////////////
 const heartBtn = document.getElementById("heartBtn");
@@ -349,7 +314,8 @@ document.getElementById("heartBtn").addEventListener("click", () => {
     document.body.classList.add("hide-scroll");
     localStorage.setItem("favoritesOpen", "true"); // Save state
 });
-//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////theme////////////////////////////////////////
 const toggleBtn = document.getElementById("toggleMode");
 const toggleIcon = document.getElementById("toggleIcon");
 const profileImg = document.getElementById("profileImg");
@@ -410,7 +376,7 @@ const usernameDisplay = document.getElementById("usernameDisplay");
 const logoutBtn = document.getElementById("logoutBtn");
 const authTitle = document.getElementById("authTitle");
 
-// ✅ Function to Check Login Status and Update Modal UI
+// Function to Check Login Status and Update Modal UI
 function checkLoginStatus() {
     const loggedInUser = localStorage.getItem("user");
 
@@ -432,43 +398,32 @@ function checkLoginStatus() {
     }
 }
 
-// ✅ Open Modal & Check Login Status
+// Open Modal & Check Login Status
 profileBtn.addEventListener("click", () => {
     authModal.classList.add("show");
     document.body.classList.add("hide-scroll");
     checkLoginStatus();
 });
 
-// ✅ Close Modal
+// Close Modal
 authClose.addEventListener("click", () => {
     authModal.classList.remove("show");
     document.body.classList.remove("hide-scroll");
 });
 
-// ✅ Logout Function (Clears User Data and Updates UI)
+// Logout Function (Clears User Data and Updates UI)
 logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("user");
     checkLoginStatus(); // Update UI after logout
     window.location.reload();
 });
 
-// ✅ Run on Page Load to Check User Status
+// Run on Page Load to Check User Status
 document.addEventListener("DOMContentLoaded", checkLoginStatus);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 async function signup() {
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -549,7 +504,6 @@ async function login() {
         loginMessage.textContent = "Login failed. Please try again.";
     }
 }
-
 
 async function generateShareLink() {
     const loggedInUser = localStorage.getItem("user");
